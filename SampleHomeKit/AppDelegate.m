@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <HomeKit/HomeKit.h>
 
 @interface AppDelegate ()
             
@@ -14,10 +15,112 @@
 @end
 
 @implementation AppDelegate
-            
+
+- (void) InitHomeKitUUIDs {
+    self.HomeKitUUIDs = [NSMutableDictionary dictionary];
+    NSString * HomeKitUUIDArray[43] =
+    {
+        HMServiceTypeLightbulb,
+        HMServiceTypeSwitch,
+        HMServiceTypeThermostat,
+        HMServiceTypeGarageDoorOpener,
+        HMServiceTypeAccessoryInformation,
+        HMServiceTypeFan,
+        HMServiceTypeOutlet,
+        HMServiceTypeLockMechanism,
+        HMServiceTypeLockManagement,
+        HMCharacteristicTypePowerState,
+        HMCharacteristicTypeHue,
+        HMCharacteristicTypeSaturation,
+        HMCharacteristicTypeBrightness,
+        HMCharacteristicTypeTemperatureUnits,
+        HMCharacteristicTypeCurrentTemperature,
+        HMCharacteristicTypeTargetTemperature,
+        HMCharacteristicTypeCurrentHeatingCooling,
+        HMCharacteristicTypeTargetHeatingCooling,
+        HMCharacteristicTypeCoolingThreshold,
+        HMCharacteristicTypeHeatingThreshold,
+        HMCharacteristicTypeCurrentRelativeHumidity,
+        HMCharacteristicTypeTargetRelativeHumidity,
+        HMCharacteristicTypeCurrentDoorState,
+        HMCharacteristicTypeTargetDoorState,
+        HMCharacteristicTypeObstructionDetected,
+        HMCharacteristicTypeName,
+        HMCharacteristicTypeManufacturer,
+        HMCharacteristicTypeModel,
+        HMCharacteristicTypeSerialNumber,
+        HMCharacteristicTypeIdentify,
+        HMCharacteristicTypeRotationDirection,
+        HMCharacteristicTypeRotationSpeed,
+        HMCharacteristicTypeOutletInUse,
+        HMCharacteristicTypeVersion,
+        HMCharacteristicTypeLogs,
+        HMCharacteristicTypeAudioFeedback,
+        HMCharacteristicTypeAdminOnlyAccess,
+        HMCharacteristicTypeMotionDetected,
+        HMCharacteristicTypeCurrentLockMechanismState,
+        HMCharacteristicTypeTargetLockMechanismState,
+        HMCharacteristicTypeLockMechanismLastKnownAction,
+        HMCharacteristicTypeLockManagementControlPoint,
+        HMCharacteristicTypeLockManagementAutoSecureTimeout
+    };
+
+    NSString * HomeKitNameArray[43] = {
+        @"Light Bulb",
+        @"Switch",
+        @"Thermostat",
+        @"Garage Door Opener",
+        @"Accessory Information",
+        @"Fan",
+        @"Outlet",
+        @"Lock Mechanism",
+        @"Lock Management",
+        @"Power State",
+        @"Hue",
+        @"Saturation",
+        @"Brightness",
+        @"Temperature Units",
+        @"Current Temperature",
+        @"Target Temperature",
+        @"Current Heating Cooling",
+        @"Target Heating Cooling",
+        @"Cooling Threshold",
+        @"Heating Threshold",
+        @"Current Relative Humidity",
+        @"Target Relative Humidity",
+        @"Current Door State",
+        @"Target Door State",
+        @"Obstruction Detected",
+        @"Name",
+        @"Manufacturer",
+        @"Model",
+        @"Serial Number",
+        @"Identify",
+        @"Rotation Direction",
+        @"Rotation Speed",
+        @"Outlet In Use",
+        @"Version",
+        @"Logs",
+        @"Audio Feedback",
+        @"Admin Only Access",
+        @"Motion Detected",
+        @"Current Lock Mechanism State",
+        @"Target Lock Mechanism State",
+        @"Lock Mechanism Last Known Action",
+        @"Lock Management Control Point",
+        @"Lock Management Auto Secure Timeout"
+    };
+
+    for(int i=0; i < 43; i ++)
+    {
+        [self.HomeKitUUIDs setObject:HomeKitNameArray[i] forKey:HomeKitUUIDArray[i]];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self InitHomeKitUUIDs];
+
     return YES;
 }
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 AP. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ServiceDetailsViewController.h"
 
 @interface ServiceDetailsViewController (){
@@ -14,6 +15,7 @@
 }
 
 @end
+
 
 @implementation ServiceDetailsViewController
 
@@ -32,6 +34,7 @@
     // Do any additional setup after loading the view.
     
     self.title = self.selectedService.name;
+
     [self updateTableViewData];
 
 }
@@ -53,7 +56,7 @@
 }
 
 -(void) updateTableViewData {
-    
+
     for (HMCharacteristic *characterstic in self.selectedService.characteristics) {
         [serviceCharacterstics addObject:characterstic];
         [self.charactersticsTableView reloadData];
@@ -79,9 +82,14 @@
     } else {
         cell.textLabel.text = @"";
     }
-    cell.detailTextLabel.text = [[serviceCharacterstics objectAtIndex:indexPath.row] characteristicType];
-    
-    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeLocked]) {
+    //cell.detailTextLabel.text = [[serviceCharacterstics objectAtIndex:indexPath.row] characteristicType];
+    AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *strCharacteristicType = [myDelegate.HomeKitUUIDs objectForKey:[[serviceCharacterstics objectAtIndex:indexPath.row] characteristicType]];
+    cell.detailTextLabel.text = strCharacteristicType;
+
+    //FIXME
+    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeTargetLockMechanismState])
+    {
         
         BOOL lockState = [characteristic.value boolValue];
         
@@ -108,8 +116,9 @@
     NSIndexPath *indexPath = [self.charactersticsTableView indexPathForRowAtPoint:switchOriginInTableView];
     
     HMCharacteristic *characteristic = [serviceCharacterstics objectAtIndex:indexPath.row];
-    
-    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeLocked]) {
+
+    //FIXME
+    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeTargetLockMechanismState]) {
         
         BOOL changedLockState = ![characteristic.value boolValue];
         
