@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 AP. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "AccessoryDetailViewController.h"
 #import "ServiceDetailsViewController.h"
 
@@ -32,6 +33,7 @@
     // Do any additional setup after loading the view.
     
     self.title = self.selectedAccessory.name;
+
     [self updateTableViewData];
 }
 
@@ -96,8 +98,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"accessoryDetailCell" forIndexPath:indexPath];
     
     cell.textLabel.text = [[accessoryServices objectAtIndex:indexPath.row] name];
-    cell.detailTextLabel.text = [[accessoryServices objectAtIndex:indexPath.row] serviceType];
-    
+    //Released Version return UUID
+    //cell.detailTextLabel.text = [[accessoryServices objectAtIndex:indexPath.row] serviceType];
+    AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *strServiceType = [myDelegate.HomeKitUUIDs objectForKey:[[accessoryServices objectAtIndex:indexPath.row] serviceType]];
+    cell.detailTextLabel.text = strServiceType;
+
     return cell;
 }
 
