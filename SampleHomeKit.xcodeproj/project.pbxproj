@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		44AAA9C21A64C2F6007DE573 /* SampleHomeKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SampleHomeKit.entitlements; sourceTree = "<group>"; };
-		D4117455196522C900D34980 /* SampleHomeKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleHomeKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4117455196522C900D34980 /* HomeKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4117459196522C900D34980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D411745A196522C900D34980 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D411745C196522C900D34980 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		D4117456196522C900D34980 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4117455196522C900D34980 /* SampleHomeKit.app */,
+				D4117455196522C900D34980 /* HomeKitDemo.app */,
 				D411746B196522C900D34980 /* SampleHomeKitTests.xctest */,
 			);
 			name = Products;
@@ -154,7 +154,7 @@
 			);
 			name = SampleHomeKit;
 			productName = SampleHomeKit;
-			productReference = D4117455196522C900D34980 /* SampleHomeKit.app */;
+			productReference = D4117455196522C900D34980 /* HomeKitDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D411746A196522C900D34980 /* SampleHomeKitTests */ = {
@@ -186,7 +186,7 @@
 				TargetAttributes = {
 					D4117454196522C900D34980 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 3PJNKG3435;
+						DevelopmentTeam = QNTLB4NUBK;
 						SystemCapabilities = {
 							com.apple.HomeKit = {
 								enabled = 1;
@@ -370,7 +370,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SampleHomeKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HomeKitDemo;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -385,7 +385,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SampleHomeKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HomeKitDemo;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -393,8 +393,8 @@
 		D4117479196522C900D34980 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SampleHomeKit.app/SampleHomeKit";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -407,16 +407,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c7bbe3f0-fecb-457a-a207-21d12cfea8a7";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeKitDemo.app/HomeKitDemo";
 			};
 			name = Debug;
 		};
 		D411747A196522C900D34980 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SampleHomeKit.app/SampleHomeKit";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -425,8 +425,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c7bbe3f0-fecb-457a-a207-21d12cfea8a7";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeKitDemo.app/HomeKitDemo";
 			};
 			name = Release;
 		};

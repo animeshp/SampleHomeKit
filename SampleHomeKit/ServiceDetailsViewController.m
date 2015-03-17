@@ -88,7 +88,7 @@
     cell.detailTextLabel.text = strCharacteristicType;
 
     //FIXME
-    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeTargetLockMechanismState])
+    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeTargetLockMechanismState] || [characteristic.characteristicType isEqualToString:HMCharacteristicTypePowerState])
     {
         
         BOOL lockState = [characteristic.value boolValue];
@@ -118,7 +118,7 @@
     HMCharacteristic *characteristic = [serviceCharacterstics objectAtIndex:indexPath.row];
 
     //FIXME
-    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeTargetLockMechanismState]) {
+    if ([characteristic.characteristicType isEqualToString:HMCharacteristicTypeTargetLockMechanismState]  || [characteristic.characteristicType isEqualToString:HMCharacteristicTypePowerState]) {
         
         BOOL changedLockState = ![characteristic.value boolValue];
         
