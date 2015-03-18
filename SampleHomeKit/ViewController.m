@@ -138,6 +138,14 @@
     }
 }
 
+- (void)accessory:(HMAccessory *)accessory service:(HMService *)service didUpdateValueForCharacteristic:(HMCharacteristic *)characteristic
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"characteristicValueChanged" object:nil userInfo:@{@"accessory": accessory,
+                                                                                                                   @"service": service,
+                                                                                                                   @"characteristic": characteristic}];
+    
+}
+
 #pragma mark - TableView datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
